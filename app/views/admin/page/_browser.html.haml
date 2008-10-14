@@ -1,0 +1,36 @@
+#browser
+  %h2 Browser
+  %p
+    Search
+    %input{:type => 'text', :name => 'browser[search]', :id => 'browser_search'}
+    #browser_search_results
+      
+- content_for :page_css do
+  :sass
+    #browser
+      :background #fff
+      :border 1px solid rgb(205, 194, 149)
+      :float right
+      :height 388px
+      :width 26%
+      *
+        :margin 0 5px
+        *
+          :margin 0 5px
+      h2
+        :background rgb(234, 227, 197)
+        :border-bottom 1px solid rgb(205, 194, 149)
+        :font-size 1em
+        :font-weight normal
+        :margin 0 0 10px 0
+        :padding 5px
+    #browser_search_results
+      :border 1px solid rgb(205, 194, 149)
+      :height 300px
+      :margin 10px 5px 0
+    #tab-control
+      :width 72%
+    #content #pages
+      :clear left
+- include_javascript 'scriptaculous'
+- include_javascript 'admin/browser_search'

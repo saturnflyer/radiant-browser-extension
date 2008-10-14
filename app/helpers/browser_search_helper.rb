@@ -1,0 +1,2 @@
+module BrowserSearchHelper
+end
