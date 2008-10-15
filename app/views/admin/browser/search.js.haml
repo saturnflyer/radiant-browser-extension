@@ -1,0 +1,5 @@
+- unless @assets.blank?
+  %ul
+    - @assets.each do |asset|
+      %li
+        = asset.name || asset.title

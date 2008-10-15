@@ -3,8 +3,8 @@
 
 class BrowserExtension < Radiant::Extension
   version "1.0"
-  description "Describe your extension here"
-  url "http://yourwebsite.com/browser"
+  description "Provides an asset browser for editing interfaces."
+  url "http://www.saturnflyer.com/"
   
   define_routes do |map|
     map.browser_search 'admin/browser/search/:type', :controller => 'admin/browser', :action => 'search', :type => 'snippets'

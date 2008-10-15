@@ -1,9 +1,15 @@
+- @assets = Snippet.find(:all)
 #browser
   %h2 Browser
   %p
-    Search
-    %input{:type => 'text', :name => 'browser[search]', :id => 'browser_search'}
+    %input{:type => 'text', :name => 'browser[search]', :id => 'browser_search', :value => 'Search'}
+    %input{:type => 'hidden', :name => 'authenticity_token', :value => form_authenticity_token}
     #browser_search_results
+      - unless @assets.blank?
+        %ul
+          - @assets.each do |asset|
+            %li
+              = asset.name || asset.title
       
 - content_for :page_css do
   :sass
@@ -11,12 +17,12 @@
       :background #fff
       :border 1px solid rgb(205, 194, 149)
       :float right
-      :height 388px
+      :height 387px
       :width 26%
       *
-        :margin 0 5px
+        :margin 0 20px
         *
-          :margin 0 5px
+          :margin 0
       h2
         :background rgb(234, 227, 197)
         :border-bottom 1px solid rgb(205, 194, 149)
@@ -24,13 +30,27 @@
         :font-weight normal
         :margin 0 0 10px 0
         :padding 5px
+      p
+        :background lime
+        :width 83%
+        input
+          :line-height 1.7
+          :font-size 1em
+          :width 100%
     #browser_search_results
       :border 1px solid rgb(205, 194, 149)
-      :height 300px
-      :margin 10px 5px 0
+      :height 285px
+      :margin 10px 20px 0
+      :overflow auto
+      ul, li
+        :margin 0
+        :padding 0
+        :list-style none
+      li
+        :border-bottom 1px solid #eee
+        :padding 5px
     #tab-control
       :width 72%
     #content #pages
       :clear left
-- include_javascript 'scriptaculous'
 - include_javascript 'admin/browser_search'
